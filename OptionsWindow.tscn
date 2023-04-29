@@ -4,7 +4,7 @@
 
 [node name="OptionsWindow" type="PopupPanel"]
 process_mode = 3
-size = Vector2i(200, 200)
+size = Vector2i(200, 256)
 visible = true
 script = ExtResource("1")
 
@@ -12,7 +12,7 @@ script = ExtResource("1")
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 196.0
-offset_bottom = 196.0
+offset_bottom = 252.0
 size_flags_horizontal = 3
 
 [node name="Header" type="Label" parent="VBoxContainer"]
@@ -62,6 +62,21 @@ size_flags_horizontal = 3
 max_value = 1.0
 step = 0.025
 
+[node name="VSyncLabel" type="Label" parent="VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "V-Sync"
+
+[node name="VSync" type="CheckBox" parent="VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MaxFPSLabel" type="Label" parent="VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Max FPS"
+
+[node name="MaxFPS" type="SpinBox" parent="VBoxContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+allow_greater = true
+
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Return"
@@ -71,4 +86,6 @@ text = "Return"
 [connection signal="value_changed" from="VBoxContainer/ScrollContainer/GridContainer/MasterVolume" to="." method="_on_MasterVolume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/ScrollContainer/GridContainer/SFXVolume" to="." method="_on_SFXVolume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/ScrollContainer/GridContainer/MusicVolume" to="." method="_on_MusicVolume_value_changed"]
+[connection signal="toggled" from="VBoxContainer/ScrollContainer/GridContainer/VSync" to="." method="_on_VSync_toggled"]
+[connection signal="value_changed" from="VBoxContainer/ScrollContainer/GridContainer/MaxFPS" to="." method="_on_MaxFPS_value_changed"]
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
