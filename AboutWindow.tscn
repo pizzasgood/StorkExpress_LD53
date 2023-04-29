@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://h5pltdbqyge3"]
+
+[ext_resource type="Script" path="res://AboutWindow.gd" id="2"]
+[ext_resource type="Script" path="res://Components.gd" id="2_q34od"]
+[ext_resource type="Script" path="res://Licenses.gd" id="3_eoia6"]
+
+[node name="AboutWindow" type="PopupPanel"]
+size = Vector2i(1058, 600)
+visible = true
+script = ExtResource("2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1054.0
+offset_bottom = 596.0
+size_flags_horizontal = 3
+
+[node name="Header" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.866667, 0.0666667, 1)
+text = "Stork Express"
+
+[node name="Body" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "This is my entry for the Ludum Dare 53 Compo, a contest to build a game in 48 hours.  This event's theme was: Delivery.
+
+Copyright © 2023 Pizzasgood
+
+This software is released under the GPL v3.
+https://www.gnu.org/licenses/gpl.txt"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.866667, 0.0666667, 1)
+text = "Third Party Components"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Components" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_q34od")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.866667, 0.0666667, 1)
+text = "Third Party Licenses"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Licenses" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_eoia6")
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Return"
