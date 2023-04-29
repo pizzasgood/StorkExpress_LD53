@@ -7,6 +7,7 @@ extends CenterContainer
 
 func _on_ResumeButton_pressed() -> void:
 	visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
 
 
@@ -22,6 +23,7 @@ func _on_QuitButton_pressed() -> void:
 
 func _ready() -> void:
 	visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _unhandled_input(event) -> void:
@@ -30,6 +32,7 @@ func _unhandled_input(event) -> void:
 			_on_ResumeButton_pressed()
 		else:
 			visible = true
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			resume_button.grab_focus()
 			get_tree().paused = true
 		get_viewport().set_input_as_handled()
