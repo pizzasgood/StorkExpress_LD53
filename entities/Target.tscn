@@ -9,7 +9,7 @@ radius = 1.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wn7v0"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1, 0, 0, 0.486275)
+albedo_color = Color(1, 0.501961, 0.501961, 0.486275)
 disable_receive_shadows = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_skklh"]
@@ -20,7 +20,7 @@ height = 2.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpqvj"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(1, 0, 0, 0.317647)
+albedo_color = Color(1, 0.501961, 0.501961, 0.317647)
 disable_receive_shadows = true
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_hmsxw"]
