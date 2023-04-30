@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8ymdfqd6l0cg"]
+[gd_scene load_steps=8 format=3 uid="uid://c8ymdfqd6l0cg"]
 
 [ext_resource type="PackedScene" uid="uid://cq34ur08y4j7a" path="res://OptionsWindow.tscn" id="1"]
 [ext_resource type="Script" path="res://Main.gd" id="1_b5eh2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjfl6q6c0d4sw" path="res://VictoryMenu.tscn" id="2_pma0q"]
 [ext_resource type="PackedScene" uid="uid://bym6gflqqhpwx" path="res://entities/Player.tscn" id="3_jvrks"]
 [ext_resource type="PackedScene" uid="uid://bsikbfqvppc2e" path="res://Map.tscn" id="6_ulavf"]
+[ext_resource type="AudioStream" uid="uid://dcuteyw3264x" path="res://bgm/storkrobatics.ogg" id="7_tc5ef"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_b5eh2")
@@ -56,3 +57,11 @@ horizontal_alignment = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.1243, 21.8489)
 
 [node name="Map" parent="." instance=ExtResource("6_ulavf")]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("7_tc5ef")
+volume_db = -6.0
+autoplay = true
+bus = &"Music"
