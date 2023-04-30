@@ -2,8 +2,8 @@ extends RigidBody3D
 
 
 var flap_thrust := 50.0
-var roll_sensitivity := 0.002
-var pitch_sensitivity := 0.002
+var roll_sensitivity := 0.04
+var pitch_sensitivity := 0.04
 var steering_pos : int = 0
 var pitch_pos : int = 0
 var updraft : float = 0.0
@@ -25,10 +25,10 @@ func _physics_process(_delta) -> void:
 		var flap_vector := 2*Vector3.UP + transform.basis.y - transform.basis.z
 		apply_central_impulse(flap_thrust * flap_vector.normalized())
 	if steering_pos != 0:
-		rotate_object_local(Vector3.FORWARD, steering_pos * roll_sensitivity)
+		rotate_object_local(Vector3.FORWARD, steering_pos * roll_sensitivity * Globals.mouse_x_sensitivity)
 		steering_pos = 0
 	if pitch_pos != 0:
-		rotate_object_local(Vector3.RIGHT, pitch_pos * pitch_sensitivity)
+		rotate_object_local(Vector3.RIGHT, pitch_pos * pitch_sensitivity * Globals.mouse_y_sensitivity)
 		pitch_pos = 0
 
 	var flap_drag_modifier : float = ((%FlapTimer.wait_time - %FlapTimer.time_left) / %FlapTimer.wait_time)
