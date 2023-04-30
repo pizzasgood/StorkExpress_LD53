@@ -9,6 +9,7 @@ var mouse_y_sensitivity: float
 
 
 func _ready() -> void:
+	seed(1)
 	restore_defaults()
 
 

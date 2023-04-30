@@ -54,7 +54,7 @@ text = "Time Taken: 0s"
 horizontal_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("3_jvrks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.1243, 21.8489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 20)
 
 [node name="Map" parent="." instance=ExtResource("6_ulavf")]
 

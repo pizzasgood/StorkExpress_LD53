@@ -18,6 +18,7 @@ func _on_OptionsButton_pressed() -> void:
 func _on_QuitButton_pressed() -> void:
 	visible = false
 	get_tree().paused = false
+	seed(1)
 	get_tree().change_scene_to_file("res://TitleScreen.tscn")
 
 

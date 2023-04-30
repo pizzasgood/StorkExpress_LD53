@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvtiafx36f6qy"]
+[gd_scene load_steps=5 format=3 uid="uid://cvtiafx36f6qy"]
 
 [ext_resource type="Script" path="res://TitleScreen.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://h5pltdbqyge3" path="res://AboutWindow.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://cq34ur08y4j7a" path="res://OptionsWindow.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bsikbfqvppc2e" path="res://Map.tscn" id="4_onu6e"]
 
 [node name="TitleScreen" type="Node"]
 script = ExtResource("1")
@@ -86,6 +87,11 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0, 0, 0.784314)
+
+[node name="Map" parent="." instance=ExtResource("4_onu6e")]
+
+[node name="Camera3D" type="Camera3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.3, 25)
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
