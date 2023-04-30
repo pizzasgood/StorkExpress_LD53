@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bsikbfqvppc2e"]
+[gd_scene load_steps=14 format=3 uid="uid://bsikbfqvppc2e"]
 
 [ext_resource type="Texture2D" uid="uid://bv6qkufi5lv5p" path="res://entities/grass.png" id="1_6oumd"]
 [ext_resource type="PackedScene" uid="uid://bq1i7kvnbkk5c" path="res://entities/SquareHouse.tscn" id="2_bhgio"]
 [ext_resource type="PackedScene" uid="uid://bh3kt2uq1hbla" path="res://entities/Target.tscn" id="3_34v27"]
+[ext_resource type="Material" uid="uid://dpytcdhrmhkyj" path="res://entities/Pavement.tres" id="4_yl811"]
+[ext_resource type="PackedScene" uid="uid://bdafbu4a0x5lk" path="res://entities/ParkingLot.tscn" id="5_22btv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ujntp"]
 sky_top_color = Color(0.0470588, 0.47451, 0.721569, 1)
@@ -35,13 +37,10 @@ size = Vector2(2048, 2048)
 
 [sub_resource type="Curve3D" id="Curve3D_ovo0d"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -192, 0, 0, 0, 0, 0, 0, 0, 0, -193, 0, -127, 0, 0, 0, 0, 0, 0, 128, 0, -128, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 103, 0, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -193, 0, 0, 0, 0, 0, 0, 0, 0, -193, 0, -128, 0, 0, 0, 0, 0, 0, 128, 0, -128, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 103, 0, 0),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5xeu"]
-albedo_color = Color(0.129412, 0.0627451, 0.054902, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_4tmyi"]
 _data = {
@@ -244,7 +243,7 @@ path_local = true
 path_continuous_u = false
 path_u_distance = 1.0
 path_joined = true
-material = SubResource("StandardMaterial3D_j5xeu")
+material = ExtResource("4_yl811")
 metadata/_edit_lock_ = true
 
 [node name="Path3D2" type="Path3D" parent="Roads"]
@@ -264,5 +263,16 @@ path_local = true
 path_continuous_u = false
 path_u_distance = 1.0
 path_joined = true
-material = SubResource("StandardMaterial3D_j5xeu")
+material = ExtResource("4_yl811")
 metadata/_edit_lock_ = true
+
+[node name="ParkingLots" type="Node3D" parent="."]
+
+[node name="ParkingLot" parent="ParkingLots" instance=ExtResource("5_22btv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 0, -104)
+
+[node name="ParkingLot3" parent="ParkingLots" instance=ExtResource("5_22btv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 88)
+
+[node name="ParkingLot2" parent="ParkingLots" instance=ExtResource("5_22btv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, 0, -24)

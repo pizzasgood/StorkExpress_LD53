@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdafbu4a0x5lk"]
+
+[ext_resource type="Material" uid="uid://dpytcdhrmhkyj" path="res://entities/Pavement.tres" id="1_5t7kk"]
+[ext_resource type="PackedScene" uid="uid://b7u3prwqiebq5" path="res://entities/Thermal.tscn" id="2_qj3ty"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_thaah"]
+size = Vector3(40, 0.4, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aq4pv"]
+material = ExtResource("1_5t7kk")
+size = Vector3(40, 0.4, 40)
+
+[node name="ParkingLot" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_thaah")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_aq4pv")
+
+[node name="Thermal" parent="." instance=ExtResource("2_qj3ty")]

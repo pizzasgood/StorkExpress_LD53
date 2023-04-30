@@ -6,6 +6,7 @@ var roll_sensitivity := 0.002
 var pitch_sensitivity := 0.002
 var steering_pos : int = 0
 var pitch_pos : int = 0
+var updraft : float = 0.0
 var cross_sections := Vector3(2.0, 50.0, 0.01)
 var baby_scene := preload("res://entities/Baby.tscn")
 
@@ -31,7 +32,7 @@ func _physics_process(_delta) -> void:
 		pitch_pos = 0
 
 	var flap_drag_modifier : float = ((%FlapTimer.wait_time - %FlapTimer.time_left) / %FlapTimer.wait_time)
-	var local_velocity := linear_velocity * transform.basis
+	var local_velocity := (linear_velocity + updraft*Vector3.DOWN) * transform.basis
 	var vel_factor := -1 * local_velocity.sign() * local_velocity * local_velocity
 	var local_drag := vel_factor * cross_sections * flap_drag_modifier
 	var drag := transform.basis * local_drag
