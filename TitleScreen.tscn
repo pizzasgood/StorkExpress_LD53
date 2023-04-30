@@ -54,9 +54,9 @@ layout_mode = 2
 layout_mode = 2
 text = "Objective: Deliver a baby to each of the red target-zones.
 
-Use the [W] and [S] keys to accelerate and decelerate.
-Use the mouse to steer.
-Left-click to drop a baby.
+Left-click to flap your wings.
+Steer with the mouse.
+Right-click to drop a baby.
 Press [Esc] to pause."
 
 [node name="AboutWindow" parent="." instance=ExtResource("2")]
