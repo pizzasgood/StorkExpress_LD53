@@ -9,6 +9,8 @@ var pitch_pos : int = 0
 var updraft : float = 0.0
 var cross_sections := Vector3(2.0, 50.0, 0.01)
 var baby_scene := preload("res://entities/Baby.tscn")
+var babies_dropped : int = 0
+var times_flapped : int = 0
 
 
 func _process(_delta) -> void:
@@ -19,6 +21,7 @@ func _process(_delta) -> void:
 
 func _physics_process(_delta) -> void:
 	if Input.is_action_pressed("flap") and %FlapTimer.is_stopped():
+		times_flapped += 1
 		%FlapTimer.start()
 		%FlapSFX.play()
 		# we want flapping to primarily push absolute-up, but also local-up and local-forward
@@ -44,6 +47,7 @@ func _physics_process(_delta) -> void:
 		linear_velocity.clamp(Vector3(-30, -30, -30), Vector3(30, 30, 30))
 
 	if Input.is_action_just_pressed("drop_baby"):
+		babies_dropped += 1
 		var baby : RigidBody3D = baby_scene.instantiate()
 		baby.position = position + 0.5*Vector3.DOWN
 		baby.linear_velocity = linear_velocity

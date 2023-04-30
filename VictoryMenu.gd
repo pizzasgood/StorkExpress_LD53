@@ -10,9 +10,11 @@ func _on_QuitButton_pressed() -> void:
 	get_tree().change_scene_to_file("res://TitleScreen.tscn")
 
 
-func victory(time, babies) -> void:
+func victory(time, babies, flaps) -> void:
 	visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	quit_button.grab_focus()
 	get_tree().paused = true
-	%Message.text = "It took you %0.2f seconds and you dropped %s extra babies!" % [time, babies]
+	%Time.text = "%0.2f" % time
+	%Flaps.text = "%s" % flaps
+	%Babies.text = "%s" % babies
