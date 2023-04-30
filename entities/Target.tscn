@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh3kt2uq1hbla"]
+
+[ext_resource type="Script" path="res://entities/Target.gd" id="1_vlhpq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mfbd7"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wn7v0"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 0.486275)
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_skklh"]
+material = SubResource("StandardMaterial3D_wn7v0")
+radius = 1.0
+height = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpqvj"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 0.317647)
+disable_receive_shadows = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hmsxw"]
+material = SubResource("StandardMaterial3D_wpqvj")
+top_radius = 2.0
+bottom_radius = 1.0
+height = 50.0
+
+[node name="Target" type="Area3D" groups=["incomplete_targets", "targets"]]
+script = ExtResource("1_vlhpq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_mfbd7")
+
+[node name="GlowSphere" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("SphereMesh_skklh")
+
+[node name="GlowColumn" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+mesh = SubResource("CylinderMesh_hmsxw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

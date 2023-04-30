@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjfl6q6c0d4sw"]
+
+[ext_resource type="Script" path="res://VictoryMenu.gd" id="1_htx05"]
+
+[node name="VictoryMenu" type="CenterContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_htx05")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "ALL DELIVERIES COMPLETE!"
+
+[node name="Message" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

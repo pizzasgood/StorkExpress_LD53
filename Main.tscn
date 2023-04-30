@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8ymdfqd6l0cg"]
+[gd_scene load_steps=15 format=3 uid="uid://c8ymdfqd6l0cg"]
 
 [ext_resource type="PackedScene" uid="uid://cq34ur08y4j7a" path="res://OptionsWindow.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://PauseMenu.tscn" id="2"]
+[ext_resource type="Script" path="res://Main.gd" id="1_b5eh2"]
+[ext_resource type="PackedScene" uid="uid://bgpleworxo4gy" path="res://PauseMenu.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bjfl6q6c0d4sw" path="res://VictoryMenu.tscn" id="2_pma0q"]
 [ext_resource type="PackedScene" uid="uid://bym6gflqqhpwx" path="res://entities/Player.tscn" id="3_jvrks"]
 [ext_resource type="Texture2D" uid="uid://bv6qkufi5lv5p" path="res://entities/grass.png" id="4_0fwhv"]
 [ext_resource type="PackedScene" uid="uid://bq1i7kvnbkk5c" path="res://entities/SquareHouse.tscn" id="4_8bccg"]
+[ext_resource type="PackedScene" uid="uid://bh3kt2uq1hbla" path="res://entities/Target.tscn" id="6_y0xh5"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_qc1eu"]
 
@@ -36,13 +39,16 @@ fog_light_color = Color(0.396078, 0.564706, 0.745098, 1)
 fog_sun_scatter = 0.24
 
 [node name="Main" type="Node"]
+script = ExtResource("1_b5eh2")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="GUI" instance=ExtResource("2")]
-process_mode = 3
+[node name="VictoryMenu" parent="GUI" instance=ExtResource("2_pma0q")]
+unique_name_in_owner = true
 visible = false
-anchors_preset = 15
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource("2")]
+visible = false
 
 [node name="OptionsWindow" parent="GUI" instance=ExtResource("1")]
 
@@ -53,8 +59,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0, 0, 0.784314)
 
+[node name="MarginContainer" type="MarginContainer" parent="GUI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CompletionLabel" type="Label" parent="GUI/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Deliveries Completed: 0/10"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="GUI/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Time Taken: 0s"
+horizontal_alignment = 1
+
 [node name="Player" parent="." instance=ExtResource("3_jvrks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.1243, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.1243, 21.8489)
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -104,3 +134,17 @@ environment = SubResource("Environment_gsoe0")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map/WorldEnvironment"]
 transform = Transform3D(0.919135, 0.334446, -0.208174, 0, 0.528438, 0.848972, 0.393942, -0.78032, 0.485706, 0, 0, 0)
 shadow_enabled = true
+
+[node name="Targets" type="Node3D" parent="Map"]
+
+[node name="Target" parent="Map/Targets" instance=ExtResource("6_y0xh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80694, 0, 0)
+
+[node name="Target2" parent="Map/Targets" instance=ExtResource("6_y0xh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80694, 0, -33.979)
+
+[node name="Target3" parent="Map/Targets" instance=ExtResource("6_y0xh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25737, 0, -15.1348)
+
+[node name="Target4" parent="Map/Targets" instance=ExtResource("6_y0xh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25737, 0, -66.7541)

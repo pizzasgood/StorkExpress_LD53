@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://ciqlijxyu54or"]
+
+[ext_resource type="Script" path="res://entities/Baby.gd" id="1_2q7yk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_npwd3"]
+rough = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ylx3w"]
+radius = 0.06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3lv5c"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_eywht"]
+material = SubResource("StandardMaterial3D_3lv5c")
+radius = 0.06
+height = 0.12
+radial_segments = 8
+rings = 8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d6xyt"]
+radius = 0.05
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vr5ab"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oplrm"]
+material = SubResource("StandardMaterial3D_vr5ab")
+radius = 0.05
+height = 0.2
+
+[node name="Baby" type="RigidBody3D" groups=["babies"]]
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_npwd3")
+script = ExtResource("1_2q7yk")
+
+[node name="HeadCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.103977, 0)
+shape = SubResource("SphereShape3D_ylx3w")
+
+[node name="HeadMesh" type="MeshInstance3D" parent="HeadCollisionShape"]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_eywht")
+skeleton = NodePath("../..")
+
+[node name="BodyCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0297365, 0)
+shape = SubResource("CapsuleShape3D_d6xyt")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="BodyCollisionShape"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 0)
+mesh = SubResource("CapsuleMesh_oplrm")
+skeleton = NodePath("../..")

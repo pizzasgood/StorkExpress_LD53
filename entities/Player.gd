@@ -9,14 +9,7 @@ var pitch_sensitivity := 0.002
 var steering_pos : int = 0
 var pitch_pos : int = 0
 var cross_sections := Vector3(1.0, 50.0, 0.1)
-
-func _ready():
-	pass
-
-
-func _process(_delta):
-	pass
-
+var baby_scene := preload("res://entities/Baby.tscn")
 
 func _physics_process(_delta):
 	if Input.is_action_pressed("accelerate"):
@@ -35,6 +28,13 @@ func _physics_process(_delta):
 	var local_drag := vel_factor * cross_sections
 	var drag := transform.basis * local_drag
 	apply_central_force(drag)
+
+	if Input.is_action_just_pressed("drop_baby"):
+		var baby : RigidBody3D = baby_scene.instantiate()
+		baby.position = position + 0.5*Vector3.DOWN
+		baby.linear_velocity = linear_velocity
+		get_parent().add_child(baby)
+
 
 func _input(event):
 	if event is InputEventMouseMotion:
