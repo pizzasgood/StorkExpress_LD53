@@ -9,6 +9,7 @@ extends Node
 
 
 func _on_StartButton_pressed() -> void:
+	seed(1)
 	get_tree().change_scene_to_file("res://Main.tscn")
 
 

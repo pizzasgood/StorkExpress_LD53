@@ -1,42 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8ymdfqd6l0cg"]
+[gd_scene load_steps=7 format=3 uid="uid://c8ymdfqd6l0cg"]
 
 [ext_resource type="PackedScene" uid="uid://cq34ur08y4j7a" path="res://OptionsWindow.tscn" id="1"]
 [ext_resource type="Script" path="res://Main.gd" id="1_b5eh2"]
 [ext_resource type="PackedScene" uid="uid://bgpleworxo4gy" path="res://PauseMenu.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://bjfl6q6c0d4sw" path="res://VictoryMenu.tscn" id="2_pma0q"]
 [ext_resource type="PackedScene" uid="uid://bym6gflqqhpwx" path="res://entities/Player.tscn" id="3_jvrks"]
-[ext_resource type="Texture2D" uid="uid://bv6qkufi5lv5p" path="res://entities/grass.png" id="4_0fwhv"]
-[ext_resource type="PackedScene" uid="uid://bq1i7kvnbkk5c" path="res://entities/SquareHouse.tscn" id="4_8bccg"]
-[ext_resource type="PackedScene" uid="uid://bh3kt2uq1hbla" path="res://entities/Target.tscn" id="6_y0xh5"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_qc1eu"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcah8"]
-albedo_texture = ExtResource("4_0fwhv")
-uv1_scale = Vector3(1024, 1024, 1024)
-texture_filter = 4
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_qf8n6"]
-material = SubResource("StandardMaterial3D_kcah8")
-size = Vector2(1024, 1024)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ujntp"]
-sky_top_color = Color(0.0470588, 0.47451, 0.721569, 1)
-sky_horizon_color = Color(0.568627, 0.662745, 0.788235, 1)
-ground_bottom_color = Color(0.294118, 0.635294, 0.411765, 1)
-ground_horizon_color = Color(0.494118, 0.701961, 0.670588, 1)
-
-[sub_resource type="Sky" id="Sky_47rcm"]
-sky_material = SubResource("ProceduralSkyMaterial_ujntp")
-
-[sub_resource type="Environment" id="Environment_gsoe0"]
-background_mode = 2
-sky = SubResource("Sky_47rcm")
-ssao_enabled = true
-ssil_enabled = true
-fog_enabled = true
-fog_light_color = Color(0.396078, 0.564706, 0.745098, 1)
-fog_sun_scatter = 0.24
+[ext_resource type="PackedScene" uid="uid://bsikbfqvppc2e" path="res://Map.tscn" id="6_ulavf"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_b5eh2")
@@ -86,65 +55,4 @@ horizontal_alignment = 1
 [node name="Player" parent="." instance=ExtResource("3_jvrks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.1243, 21.8489)
 
-[node name="Map" type="Node3D" parent="."]
-
-[node name="Ground" type="StaticBody3D" parent="Map"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Ground"]
-shape = SubResource("WorldBoundaryShape3D_qc1eu")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Ground"]
-mesh = SubResource("PlaneMesh_qf8n6")
-
-[node name="Houses" type="Node3D" parent="Map"]
-
-[node name="SquareHouse" parent="Map/Houses" instance=ExtResource("4_8bccg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42823, 0, 0)
-
-[node name="SquareHouse2" parent="Map/Houses" instance=ExtResource("4_8bccg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42823, 0, -15.4605)
-
-[node name="SquareHouse3" parent="Map/Houses" instance=ExtResource("4_8bccg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42823, 0, -33.9987)
-
-[node name="SquareHouse4" parent="Map/Houses" instance=ExtResource("4_8bccg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42823, 0, -50.5672)
-
-[node name="SquareHouse5" parent="Map/Houses" instance=ExtResource("4_8bccg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42823, 0, -66.8994)
-
-[node name="SquareHouse6" parent="Map/Houses" instance=ExtResource("4_8bccg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1065, 0, 0)
-
-[node name="SquareHouse7" parent="Map/Houses" instance=ExtResource("4_8bccg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1065, 0, -15.4605)
-
-[node name="SquareHouse8" parent="Map/Houses" instance=ExtResource("4_8bccg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1065, 0, -33.9987)
-
-[node name="SquareHouse9" parent="Map/Houses" instance=ExtResource("4_8bccg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1065, 0, -50.5672)
-
-[node name="SquareHouse10" parent="Map/Houses" instance=ExtResource("4_8bccg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1065, 0, -66.8994)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
-environment = SubResource("Environment_gsoe0")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map/WorldEnvironment"]
-transform = Transform3D(0.919135, 0.334446, -0.208174, 0, 0.528438, 0.848972, 0.393942, -0.78032, 0.485706, 0, 0, 0)
-shadow_enabled = true
-
-[node name="Targets" type="Node3D" parent="Map"]
-
-[node name="Target" parent="Map/Targets" instance=ExtResource("6_y0xh5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80694, 0, 0)
-
-[node name="Target2" parent="Map/Targets" instance=ExtResource("6_y0xh5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80694, 0, -33.979)
-
-[node name="Target3" parent="Map/Targets" instance=ExtResource("6_y0xh5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25737, 0, -15.1348)
-
-[node name="Target4" parent="Map/Targets" instance=ExtResource("6_y0xh5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25737, 0, -66.7541)
+[node name="Map" parent="." instance=ExtResource("6_ulavf")]
