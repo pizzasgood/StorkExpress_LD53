@@ -6,21 +6,21 @@ extends VBoxContainer
 
 
 func _ready() -> void:
-	var remaining = len(Engine.get_copyright_info())
+	var remaining := len(Engine.get_copyright_info())
 	for component in Engine.get_copyright_info():
-		var header = Label.new()
+		var header := Label.new()
 		header.text = "%s:" % component['name']
 		header.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		header.add_theme_color_override('font_color', header_color)
 		add_child(header)
 
 		for part in component['parts']:
-			var labels = []
+			var labels := []
 			for copyright in part['copyright']:
-				var label = Label.new()
+				var label := Label.new()
 				label.text = "© %s" % copyright
 				labels.append(label)
-			var license = Label.new()
+			var license := Label.new()
 			license.text = "License: %s" % part['license']
 			labels.append(license)
 			for label in labels:

@@ -11,7 +11,7 @@ var pitch_pos : int = 0
 var cross_sections := Vector3(1.0, 50.0, 0.1)
 var baby_scene := preload("res://entities/Baby.tscn")
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	if Input.is_action_pressed("accelerate"):
 		apply_central_force(-thrust * transform.basis.z)
 	if Input.is_action_pressed("decelerate"):
@@ -36,7 +36,7 @@ func _physics_process(_delta):
 		get_parent().add_child(baby)
 
 
-func _input(event):
+func _input(event) -> void:
 	if event is InputEventMouseMotion:
 		steering_pos += event.relative.x
 		pitch_pos += event.relative.y

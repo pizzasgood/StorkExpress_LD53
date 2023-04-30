@@ -38,11 +38,11 @@ func _on_MusicVolume_value_changed(value) -> void:
 	Globals.music_volume = value
 
 
-func _on_VSync_toggled(button_pressed):
+func _on_VSync_toggled(button_pressed) -> void:
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if button_pressed else DisplayServer.VSYNC_DISABLED)
 
 
-func _on_MaxFPS_value_changed(value):
+func _on_MaxFPS_value_changed(value) -> void:
 	Engine.max_fps = value
 
 
