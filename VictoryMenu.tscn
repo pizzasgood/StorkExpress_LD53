@@ -12,48 +12,55 @@ script = ExtResource("1_htx05")
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Header" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Header" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.8, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "Finished!"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Seconds Required:"
 horizontal_alignment = 2
 
-[node name="Time" type="Label" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="Time" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Times Flapped:"
 horizontal_alignment = 2
 
-[node name="Flaps" type="Label" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="Flaps" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="Label5" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Babies Wasted:"
 horizontal_alignment = 2
 
-[node name="Babies" type="Label" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="Babies" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
