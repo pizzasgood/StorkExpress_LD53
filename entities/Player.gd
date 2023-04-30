@@ -19,6 +19,7 @@ func _process(_delta) -> void:
 func _physics_process(_delta) -> void:
 	if Input.is_action_pressed("flap") and %FlapTimer.is_stopped():
 		%FlapTimer.start()
+		%FlapSFX.play()
 		# we want flapping to primarily push absolute-up, but also local-up and local-forward
 		var flap_vector := 2*Vector3.UP + transform.basis.y - transform.basis.z
 		apply_central_impulse(flap_thrust * flap_vector.normalized())

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciqlijxyu54or"]
+[gd_scene load_steps=10 format=3 uid="uid://ciqlijxyu54or"]
 
 [ext_resource type="Script" path="res://entities/Baby.gd" id="1_2q7yk"]
+[ext_resource type="AudioStream" uid="uid://bnq46i6cvqeht" path="res://sfx/drop.wav" id="2_mssel"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_npwd3"]
 rough = true
@@ -51,3 +52,8 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 0)
 mesh = SubResource("CapsuleMesh_oplrm")
 skeleton = NodePath("../..")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_mssel")
+bus = &"SFX"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bym6gflqqhpwx"]
+[gd_scene load_steps=6 format=3 uid="uid://bym6gflqqhpwx"]
 
 [ext_resource type="Script" path="res://entities/Player.gd" id="1_rxce8"]
+[ext_resource type="AudioStream" uid="uid://btknqbr1p048i" path="res://sfx/flap.wav" id="2_sfc75"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_10wtv"]
 
@@ -49,3 +50,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367, 0)
 spring_length = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+
+[node name="FlapSFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_sfc75")
+volume_db = -6.0
+bus = &"SFX"

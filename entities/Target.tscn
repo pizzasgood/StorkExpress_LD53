@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh3kt2uq1hbla"]
+[gd_scene load_steps=8 format=3 uid="uid://bh3kt2uq1hbla"]
 
 [ext_resource type="Script" path="res://entities/Target.gd" id="1_vlhpq"]
+[ext_resource type="AudioStream" uid="uid://dg7wswhuujy8f" path="res://sfx/target_hit.wav" id="2_livq7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mfbd7"]
 radius = 1.0
@@ -40,5 +41,11 @@ mesh = SubResource("SphereMesh_skklh")
 [node name="GlowColumn" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
 mesh = SubResource("CylinderMesh_hmsxw")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("2_livq7")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

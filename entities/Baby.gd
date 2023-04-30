@@ -22,6 +22,7 @@ func _ready() -> void:
 	body_mat.albedo_color = body_colors.pick_random()
 	%HeadMesh.set_surface_override_material(0, head_mat)
 	%BodyMesh.set_surface_override_material(0, body_mat)
+	%SFX.play()
 
 func _exit_tree() -> void:
 	%HeadMesh.set_surface_override_material(0, null)
