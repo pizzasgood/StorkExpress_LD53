@@ -6,7 +6,7 @@ var roll_sensitivity := 0.002
 var pitch_sensitivity := 0.002
 var steering_pos : int = 0
 var pitch_pos : int = 0
-var cross_sections := Vector3(2.0, 50.0, 0.1)
+var cross_sections := Vector3(2.0, 50.0, 0.01)
 var baby_scene := preload("res://entities/Baby.tscn")
 
 
