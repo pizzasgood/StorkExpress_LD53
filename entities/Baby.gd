@@ -27,3 +27,7 @@ func _ready() -> void:
 func _exit_tree() -> void:
 	%HeadMesh.set_surface_override_material(0, null)
 	%BodyMesh.set_surface_override_material(0, null)
+
+
+func _on_Timer_timeout():
+	queue_free()
