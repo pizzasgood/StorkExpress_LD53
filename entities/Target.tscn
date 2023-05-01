@@ -16,6 +16,8 @@ disable_receive_shadows = true
 material = SubResource("StandardMaterial3D_wn7v0")
 radius = 1.0
 height = 2.0
+radial_segments = 16
+rings = 16
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpqvj"]
 transparency = 1
@@ -28,6 +30,8 @@ material = SubResource("StandardMaterial3D_wpqvj")
 top_radius = 2.0
 bottom_radius = 1.0
 height = 50.0
+radial_segments = 16
+rings = 1
 
 [node name="Target" type="Area3D" groups=["incomplete_targets", "targets"]]
 script = ExtResource("1_vlhpq")

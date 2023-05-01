@@ -10,6 +10,8 @@ material = SubResource("StandardMaterial3D_elm87")
 top_radius = 0.2
 bottom_radius = 0.25
 height = 1.0
+radial_segments = 16
+rings = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5msgy"]
 albedo_color = Color(0.196078, 0.517647, 0, 1)
@@ -19,6 +21,8 @@ material = SubResource("StandardMaterial3D_5msgy")
 top_radius = 0.0
 bottom_radius = 1.25
 height = 6.0
+radial_segments = 16
+rings = 1
 
 [node name="PineTree" type="StaticBody3D"]
 

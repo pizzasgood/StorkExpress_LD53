@@ -52,6 +52,8 @@ material = SubResource("StandardMaterial3D_w2o8y")
 top_radius = 1.0
 bottom_radius = 1.0
 height = 15.0
+radial_segments = 16
+rings = 1
 
 [node name="TownHall" type="StaticBody3D"]
 
