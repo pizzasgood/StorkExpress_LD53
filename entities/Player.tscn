@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://entities/Player.gd" id="1_rxce8"]
 [ext_resource type="AudioStream" uid="uid://btknqbr1p048i" path="res://sfx/flap.wav" id="2_sfc75"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_10wtv"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yv302"]
+radius = 0.359126
+height = 1.76972
 
 [sub_resource type="PrismMesh" id="PrismMesh_gxk06"]
 size = Vector3(0.5, 1.5, 0.15)
@@ -18,7 +20,8 @@ linear_damp_mode = 1
 script = ExtResource("1_rxce8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_10wtv")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.0809098)
+shape = SubResource("CapsuleShape3D_yv302")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.0366033, -0.163166)
