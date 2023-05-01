@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://blu84kvaen3sp"]
+
+[ext_resource type="Script" path="res://entities/AutoCollision.gd" id="1_hkx57"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elm87"]
+albedo_color = Color(0.396078, 0.141176, 0.027451, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s87j6"]
+material = SubResource("StandardMaterial3D_elm87")
+top_radius = 0.2
+bottom_radius = 0.25
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5msgy"]
+albedo_color = Color(0.196078, 0.517647, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jm5h6"]
+material = SubResource("StandardMaterial3D_5msgy")
+top_radius = 0.0
+bottom_radius = 1.25
+height = 6.0
+
+[node name="PineTree" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+script = ExtResource("1_hkx57")
+
+[node name="Trunk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_s87j6")
+
+[node name="Needles" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8529, 0)
+mesh = SubResource("CylinderMesh_jm5h6")
+skeleton = NodePath("../Trunk")

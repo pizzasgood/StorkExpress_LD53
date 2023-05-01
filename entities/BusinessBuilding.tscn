@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2dynib43vcsi"]
+
+[ext_resource type="Script" path="res://entities/AutoCollision.gd" id="1_vj48t"]
+[ext_resource type="PackedScene" uid="uid://b7u3prwqiebq5" path="res://entities/Thermal.tscn" id="2_5jjss"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlkhb"]
+albedo_color = Color(0.886275, 0.392157, 0.156863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4sdlr"]
+material = SubResource("StandardMaterial3D_nlkhb")
+size = Vector3(40, 6, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxrhs"]
+albedo_color = Color(0.219608, 0.12549, 0.117647, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ocqx"]
+material = SubResource("StandardMaterial3D_rxrhs")
+size = Vector3(42, 1, 42)
+
+[node name="BusinessBuilding" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+script = ExtResource("1_vj48t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("BoxMesh_4sdlr")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mesh = SubResource("BoxMesh_7ocqx")
+
+[node name="Thermal" parent="." instance=ExtResource("2_5jjss")]

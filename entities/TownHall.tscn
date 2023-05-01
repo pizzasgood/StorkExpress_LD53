@@ -1,0 +1,91 @@
+[gd_scene load_steps=16 format=3 uid="uid://ckbicmrwdfbpp"]
+
+[ext_resource type="Script" path="res://entities/AutoCollision.gd" id="1_15dre"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ka8qn"]
+albedo_color = Color(0.85098, 0.85098, 0.85098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g1ach"]
+material = SubResource("StandardMaterial3D_ka8qn")
+size = Vector3(40, 8, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdi7k"]
+albedo_color = Color(0.968627, 0.270588, 0.243137, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_xnqj2"]
+material = SubResource("StandardMaterial3D_jdi7k")
+size = Vector3(22, 8, 42)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jk5ay"]
+albedo_color = Color(0.851769, 0.851769, 0.851769, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qqa4n"]
+material = SubResource("StandardMaterial3D_jk5ay")
+size = Vector3(35, 10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jp4oa"]
+albedo_color = Color(0.969072, 0.268971, 0.24351, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ljtuq"]
+material = SubResource("StandardMaterial3D_jp4oa")
+size = Vector3(12, 5, 37)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebeba"]
+albedo_color = Color(0.851769, 0.851769, 0.851769, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wfux3"]
+material = SubResource("StandardMaterial3D_ebeba")
+size = Vector3(20, 15, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxs7j"]
+albedo_color = Color(0.969072, 0.268971, 0.24351, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_loi0j"]
+material = SubResource("StandardMaterial3D_mxs7j")
+size = Vector3(22, 8, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2o8y"]
+albedo_color = Color(0.851769, 0.851769, 0.851769, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v5ukn"]
+material = SubResource("StandardMaterial3D_w2o8y")
+top_radius = 1.0
+bottom_radius = 1.0
+height = 15.0
+
+[node name="TownHall" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+script = ExtResource("1_15dre")
+
+[node name="GroundFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.946514, 0)
+mesh = SubResource("BoxMesh_g1ach")
+
+[node name="Roof" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 8.71604, 0)
+mesh = SubResource("PrismMesh_xnqj2")
+
+[node name="MiddleFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.9092, 0)
+mesh = SubResource("BoxMesh_qqa4n")
+
+[node name="Roof2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 19.0835, 0)
+mesh = SubResource("PrismMesh_ljtuq")
+
+[node name="BigFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.12048, 6.05015)
+mesh = SubResource("BoxMesh_wfux3")
+
+[node name="BigRoof" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.1589, 12.8755)
+mesh = SubResource("PrismMesh_loi0j")
+
+[node name="Column" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4.06568, 20.6203)
+mesh = SubResource("CylinderMesh_v5ukn")
+
+[node name="Column2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 4.06568, 20.6203)
+mesh = SubResource("CylinderMesh_v5ukn")
