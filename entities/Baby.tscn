@@ -7,21 +7,22 @@
 rough = true
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ylx3w"]
-radius = 0.06
+radius = 0.12
 
 [sub_resource type="SphereMesh" id="SphereMesh_eywht"]
-radius = 0.06
-height = 0.12
+radius = 0.12
+height = 0.24
 radial_segments = 8
 rings = 8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d6xyt"]
-radius = 0.05
-height = 0.2
+radius = 0.1
+height = 0.4
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oplrm"]
-radius = 0.05
-height = 0.2
+radius = 0.1
+height = 0.4
+radial_segments = 8
 
 [node name="Baby" type="RigidBody3D" groups=["babies"]]
 mass = 3.0
@@ -29,7 +30,7 @@ physics_material_override = SubResource("PhysicsMaterial_npwd3")
 script = ExtResource("1_2q7yk")
 
 [node name="HeadCollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.103977, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20029, 0)
 shape = SubResource("SphereShape3D_ylx3w")
 
 [node name="HeadMesh" type="MeshInstance3D" parent="HeadCollisionShape"]
@@ -38,7 +39,7 @@ mesh = SubResource("SphereMesh_eywht")
 skeleton = NodePath("../..")
 
 [node name="BodyCollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0297365, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0646486, 0)
 shape = SubResource("CapsuleShape3D_d6xyt")
 
 [node name="BodyMesh" type="MeshInstance3D" parent="BodyCollisionShape"]
